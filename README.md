@@ -1,5 +1,7 @@
 # SF-X500 · 四旋翼爆炸拆解视图
 
+**在线地址：<https://kristisally25396982-debug.github.io/sf-x500-exploded/>**
+
 一个纯前端的三维爆炸拆解（Exploded View）演示：四旋翼无人机被拆成 **17 个可交互部件**，可以滑动逐层展开、点选查看每一件的说明与参数。
 
 - **零构建**：双击 `index.html` 就能跑，不需要 Node、不需要本地服务器
