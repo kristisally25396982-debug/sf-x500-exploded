@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SF-X500 爆炸拆解 / Exploded View</title>
+<meta name="description" content="A browser-based exploded-view lab for a quadcopter, built with three.js.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="hud hud-top">
+  <div class="brand">
+    <div class="kicker">EXPLODED VIEW · THREE.JS</div>
+    <h1>SF-X500</h1>
+    <div class="sub">四旋翼平台 · 逐件拆解</div>
+  </div>
+  <dl class="telemetry">
+    <div><dt>部件</dt><dd id="stat-parts">14</dd></div>
+    <div><dt>三角面</dt><dd id="stat-tris">58k</dd></div>
+    <div><dt>展开度</dt><dd id="stat-explode">0%</dd></div>
+    <div><dt>坐标</dt><dd id="stat-cam">—</dd></div>
+  </dl>
+</header>
+
+<aside class="hud panel" id="bom">
+  <div class="panel-head">
+    <span>结构清单</span>
+    <span class="panel-count" id="bom-count">14 PARTS</span>
+  </div>
+  <ol id="bom-list" class="bom-list"></ol>
+  <div class="panel-foot">
+    <span class="dot"></span>点击部件聚焦 · 鼠标悬停高亮
+  </div>
+</aside>
+
+<aside class="hud card" id="part-card" aria-live="polite">
+  <button class="card-close" id="part-close" aria-label="关闭">×</button>
+  <div class="card-kicker" id="part-kicker">PART 01</div>
+  <h2 id="part-name">机身</h2>
+  <p id="part-desc"></p>
+  <dl class="card-specs" id="part-specs"></dl>
+  <button class="card-focus" id="part-focus">聚焦此部件</button>
+</aside>
+
+<div class="hud dock" id="dock">
+  <button class="dock-btn" id="btn-explode" title="拆解 / 组装 (空格)"><span class="ico">◨</span><span>拆解</span></button>
+  <div class="slider-wrap">
+    <input id="explode" type="range" min="0" max="100" value="0" step="0.5" aria-label="展开度">
+    <div class="slider-rail" aria-hidden="true"><i id="slider-fill"></i></div>
+    <div class="slider-ends"><span>组装</span><span>展开</span></div>
+  </div>
+  <div class="dock-toggles">
+    <button class="toggle" id="tg-spin" title="自动旋转">旋转</button>
+    <button class="toggle" id="tg-labels" title="部件标注">标注</button>
+    <button class="toggle" id="tg-wire" title="线框">线框</button>
+    <button class="toggle" id="tg-reset" title="复位视角">视角</button>
+  </div>
+</div>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-kicker">SF-X500</div>
+    <div class="loader-title" id="loader-title">正在载入机体</div>
+    <div class="bar"><i id="bar-fill"></i></div>
+    <div class="loader-stat" id="loader-stat">loading glTF…</div>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="vendor/OrbitControls.js"></script>
+<script src="vendor/GLTFLoader.js"></script>
+<script src="vendor/CSS2DRenderer.js"></script>
+<script src="vendor/RoomEnvironment.js"></script>
+<script src="assets/model-b64.js"></script>
+<script src="js/config.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/drone.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
